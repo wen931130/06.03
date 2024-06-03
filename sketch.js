@@ -74,10 +74,9 @@ function drawSkeleton() {
     }
     
     if (leftEar.score > 0.1 && rightEar.score > 0.1) {
-      // Increase the distance between the two dinosaur images
       let distance = 100; // Adjust this value to increase or decrease the separation
       image(dinosaurImg, leftEar.x - distance, leftEar.y - 50, 50, 50);
-      image(dinosaurImg, rightEar.x + distance, rightEar.y - 50, 50, 50);
+      image(dinosaurImg, rightEar.x + distance, rightEar.y -25, 50, 50);
     }
   }
 }
