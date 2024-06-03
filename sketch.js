@@ -64,12 +64,14 @@ function drawSkeleton() {
     pose = poses[i];
     let leftEar = pose.keypoints[3];
     let rightEar = pose.keypoints[4];
-    if(partA.score > 0.1 && partB.score > 0.1){
-         image(dinosaurImg,partA.x+100,partA.y-50,50,50)
-       }
+    
+    // Check if both ears are detected with sufficient confidence
+    if (leftEar.score > 0.1 && rightEar.score > 0.1) {
+      // Draw the dinosaur image between the ears
+      image(dinosaurImg, leftEar.x + 50, leftEar.y - 50, 50, 50);
+    }
   }
 }
-
 
 /* Points (view on left of screen = left part - when mirrored)
   0 nose
