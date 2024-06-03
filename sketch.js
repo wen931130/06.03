@@ -76,8 +76,6 @@ function drawSkeleton() {
       // 在右手腕位置顯示物件圖片
       image(dinosaurImg, rightWrist.x, rightWrist.y, 50, 50);
     }
-
-    // 檢查左右耳朵的存在並在其位置顯示物件圖片
     if (leftEar.score > 0.1) {
       image(dinosaurImg, leftEar.x, leftEar.y, 50, 50);
     }
