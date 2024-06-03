@@ -7,9 +7,11 @@ https://www.tensorflow.org/hub/tutorials/movenet
 
 let video, bodypose, pose, keypoint, detector;
 let poses = [];
+
 function preload(){
   dinosaurImg = loadImage("dinosaur.gif")
 }
+
 async function init() {
   const detectorConfig = {
     modelType: poseDetection.movenet.modelType.MULTIPOSE_LIGHTNING,
@@ -60,11 +62,10 @@ function draw() {
 function drawSkeleton() {
 for (let i = 0;i<poses.length;i++){
 pose = poses[i]
-//eye
 partL = pose.keypoints[3]
 partR = pose.keypoints[4]
-  if(partA.score > 0.1){
-  image(dinosaurImg,partA.x-25,partA.y-25,50,50)
+  if(partA.score > 0.1&&partB.score > 0.1){
+  image(dinosaurImg,partA.x,partA.y,50,50)
 }
 }
 }
