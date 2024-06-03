@@ -7,7 +7,9 @@ https://www.tensorflow.org/hub/tutorials/movenet
 
 let video, bodypose, pose, keypoint, detector;
 let poses = [];
-dinosaurImg = loadImage("dinosaur.gif")
+function preload(){
+  dinosaurImg = loadImage("dinosaur.gif")
+}
 async function init() {
   const detectorConfig = {
     modelType: poseDetection.movenet.modelType.MULTIPOSE_LIGHTNING,
