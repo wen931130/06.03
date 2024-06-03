@@ -62,37 +62,14 @@ function draw() {
 function drawSkeleton() {
   for (let i = 0; i < poses.length; i++) {
     pose = poses[i];
-    // 獲取左耳和右耳的位置
     let leftEar = pose.keypoints[3];
     let rightEar = pose.keypoints[4];
-    let leftWrist = pose.keypoints[9];
-    let rightWrist = pose.keypoints[10];
-
-    if (leftWrist.score > 0.1) {
-      // 在左手腕位置顯示物件圖片
-      image(dinosaurImg, leftWrist.x, leftWrist.y, 50, 50);
-    }
-    if (rightWrist.score > 0.1) {
-      // 在右手腕位置顯示物件圖片
-      image(dinosaurImg, rightWrist.x, rightWrist.y, 50, 50);
-    }
-    if (leftEar.score > 0.1) {
-      image(dinosaurImg, leftEar.x, leftEar.y, 50, 50);
-    }
-    if (rightEar.score > 0.1) {
-      image(dinosaurImg, rightEar.x, rightEar.y, 50, 50);
-    }
+    if(partA.score > 0.1 && partB.score > 0.1){
+         image(dinosaurImg,partA.x+100,partA.y-50,50,50)
+       }
   }
 }
-// for (let i = 0;i<poses.length;i++){
-// pose = poses[i]
-// partL = pose.keypoints[3]
-// partR = pose.keypoints[4]
-//   if(partA.score > 0.1&&partB.score > 0.1){
-//   image(dinosaurImg,partA.x,partA.y,50,50)
-// }
-// }
-// }
+
 
 /* Points (view on left of screen = left part - when mirrored)
   0 nose
