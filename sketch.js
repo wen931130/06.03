@@ -5,11 +5,11 @@ https://www.tensorflow.org/hub/tutorials/movenet
 
 */
 
-let video, bodypose, pose, keypoint, detector;
+let video, detector, dinosaurImg;
 let poses = [];
 
-function preload(){
-  dinosaurImg = loadImage("dinosaur.gif")
+function preload() {
+  dinosaurImg = loadImage("dinosaur.gif");
 }
 
 async function init() {
@@ -31,7 +31,7 @@ async function getPoses() {
   if (detector) {
     poses = await detector.estimatePoses(video.elt, {
       maxPoses: 2,
-      //flipHorizontal: true,
+      // flipHorizontal: true,
     });
   }
   requestAnimationFrame(getPoses);
@@ -59,23 +59,25 @@ function draw() {
 
 }
 
+
 function drawSkeleton() {
   for (let i = 0; i < poses.length; i++) {
-    pose = poses[i];
-    partA = pose.keypoints[3];
-    partB = pose.keypoints[4];
-    if(partA.score >0.1){
-      push()
-      textSize(40)
-      text("412730748 陳玟慈",10,40)
-      pop()
+    let pose = poses[i];
+    let leftEar = pose.keypoints[3];
+    let rightEar = pose.keypoints[4];
+
+    if (leftEar.score > 0.1) {
+      push();
+      textSize(40);
+      text("412730748 陳玟慈", 10, 40);
+      pop();
     }
     
-    if (partA.score > 0.1 && partB.score > 0.1) {
-      // Draw the dinosaur image between the ears
-      let distance = 100;
-      image(dinosaurImg, leftEar.x + 50, leftEar.y - 50, 50, 50);
-      image(dinosaurImg, leftEar.x + 50, leftEar.y - 25, 50, 50);
+    if (leftEar.score > 0.1 && rightEar.score > 0.1) {
+      // Increase the distance between the two dinosaur images
+      let distance = 100; // Adjust this value to increase or decrease the separation
+      image(dinosaurImg, leftEar.x - distance, leftEar.y - 50, 50, 50);
+      image(dinosaurImg, rightEar.x + distance, rightEar.y - 50, 50, 50);
     }
   }
 }
@@ -94,7 +96,7 @@ function drawSkeleton() {
   10 right wrist
   11 left hip
   12 right hip
-  13 left kneee
+  13 left knee
   14 right knee
   15 left foot
   16 right foot
