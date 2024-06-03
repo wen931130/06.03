@@ -62,13 +62,13 @@ function draw() {
 function drawSkeleton() {
   for (let i = 0; i < poses.length; i++) {
     pose = poses[i];
-    let leftEar = pose.keypoints[3];
-    let rightEar = pose.keypoints[4];
+    partA = pose.keypoints[3];
+    partB = pose.keypoints[4];
     
-    // Check if both ears are detected with sufficient confidence
-    if (leftEar.score > 0.1 && rightEar.score > 0.1) {
+    if (partA.score > 0.1 && partB.score > 0.1) {
       // Draw the dinosaur image between the ears
       image(dinosaurImg, leftEar.x + 50, leftEar.y - 50, 50, 50);
+      image(dinosaurImg, leftEar.x + 50, leftEar.y - 25, 50, 50);
     }
   }
 }
