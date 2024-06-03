@@ -67,12 +67,13 @@ function drawSkeleton() {
     if(partA.score >0.1){
       push()
       textSize(40)
-      text("412730748 陳玟慈")
+      text("412730748 陳玟慈",10,40)
       pop()
     }
     
     if (partA.score > 0.1 && partB.score > 0.1) {
       // Draw the dinosaur image between the ears
+      let distance = 100;
       image(dinosaurImg, leftEar.x + 50, leftEar.y - 50, 50, 50);
       image(dinosaurImg, leftEar.x + 50, leftEar.y - 25, 50, 50);
     }
