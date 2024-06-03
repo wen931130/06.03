@@ -52,7 +52,7 @@ function draw() {
   // flip horizontal
   cam = get();
   translate(cam.width, 0);
-  scale(-1, 1);
+  scale(-1, 1);  //反向
   image(cam, 0, 0);
 }
 
@@ -84,15 +84,8 @@ function drawSkeleton() {
     }
 
 //eye
-partL = pose.keypoints[1]
-partR = pose.keypoints[2]
-if(partL.score > 0.1){
-  ellipse(partL.x,partL.y,50)
-}
-if(partR.score > 0.1){
-  ellipse(partR.x,partR.y,50)
-}
-partA = pose.keypoints[0]
+partL = pose.keypoints[3]
+partR = pose.keypoints[4]
   if(partA.score > 0.1){
   image(dinosaurImg,partA.x-25,partA.y-25,50,50)
 }
