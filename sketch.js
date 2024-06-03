@@ -58,12 +58,14 @@ function draw() {
 }
 
 function drawSkeleton() {
-
+for (let i = 0;i<poses.length;i++){
+pose = poses[i]
 //eye
 partL = pose.keypoints[3]
 partR = pose.keypoints[4]
   if(partA.score > 0.1){
   image(dinosaurImg,partA.x-25,partA.y-25,50,50)
+}
 }
 }
 
