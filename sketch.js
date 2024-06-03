@@ -54,7 +54,7 @@ function draw() {
   // flip horizontal
   cam = get();
   translate(cam.width, 0);
-  scale(-1, 1);  //反向
+  scale(1, -1);  //反向
   image(cam, 0, 0);
 
 }
