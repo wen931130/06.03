@@ -64,6 +64,12 @@ function drawSkeleton() {
     pose = poses[i];
     partA = pose.keypoints[3];
     partB = pose.keypoints[4];
+    if(partA.score >0.1){
+      push()
+      textSize(40)
+      text("412730748 陳玟慈")
+      pop()
+    }
     
     if (partA.score > 0.1 && partB.score > 0.1) {
       // Draw the dinosaur image between the ears
