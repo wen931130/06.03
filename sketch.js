@@ -58,7 +58,6 @@ function draw() {
   image(cam, 0, 0);
 
 }
-
 function drawSkeleton () {
   // Draw all the tracked landmark points
   for (let i = 0; i < poses. length; i++) {
@@ -76,7 +75,7 @@ function drawSkeleton () {
   if (partB.score > 0.1) {
     push();
     textSize(40);
-    text("412730748 陳玟慈",  partA.x-50,partA.y-100);
+    text("412730748 陳玟慈", partA.x-50,partA.y-100);
     pop();
   }
   if (partA.score > 0.1) {
