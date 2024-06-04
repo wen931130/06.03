@@ -72,7 +72,7 @@ function drawSkeleton () {
   }
   if (partB.score > 0.1) {
   image (dinosaurImg, partB.x, partB. y-25,50,50) 
-    partA = pose. keypoints [2];
+  partA = pose. keypoints [2];
   if (partB.score > 0.1) {
     push();
     textSize(40);
